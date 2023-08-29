@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/','welcome')->name('welcome');
+Route::view('/', 'welcome')->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
@@ -15,6 +15,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/chirps', function () {
         return view('chirps.index');
     })->name('chirps.index');
+
+    Route::post('/chirps', function () {
+        $message = request('message');
+        // Insert into database
+    });
 });
 
 require __DIR__.'/auth.php';
