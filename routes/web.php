@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Chirp;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('welcome');
@@ -17,8 +18,12 @@ Route::middleware('auth')->group(function () {
     })->name('chirps.index');
 
     Route::post('/chirps', function () {
-        $message = request('message');
-        // Insert into database
+        Chirp::create([
+            'message' => request('message'),
+            'user_id' => auth()->id(),
+        ]);
+
+        return to_route('chirps.index');
     });
 });
 
