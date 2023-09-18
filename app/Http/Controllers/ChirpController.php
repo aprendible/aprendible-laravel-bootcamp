@@ -20,7 +20,10 @@ class ChirpController extends Controller
      */
     public function store(Request $request)
     {
-        // validation
+        $request->validate([
+            'message' => ['required', 'min:3', 'max:255'],
+        ]);
+
         Chirp::create([
             'message' => $request->get('message'),
             'user_id' => auth()->id(),
