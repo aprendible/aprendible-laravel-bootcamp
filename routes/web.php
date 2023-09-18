@@ -23,7 +23,8 @@ Route::middleware('auth')->group(function () {
             'user_id' => auth()->id(),
         ]);
 
-        return to_route('chirps.index');
+        return to_route('chirps.index')
+            ->with('status', __('Chirp created successfully!'));
     });
 });
 
