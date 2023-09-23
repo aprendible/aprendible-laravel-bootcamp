@@ -36,7 +36,9 @@
                         <div class="flex-1">
                             <div class="flex justify-between items-center">
                                 <div>
-                                    <span class="text-gray-800 dark:text-gray-200">USER_NAME</span>
+                                    <span class="text-gray-800 dark:text-gray-200">
+                                        {{ $chirp->user->name }}
+                                    </span>
                                     <small class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ $chirp->created_at->format('j M Y, g:i a') }}</small>
                                 </div>
                             </div>
