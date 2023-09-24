@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/chirps/{chirp}/edit', [ChirpController::class, 'edit'])
         ->name('chirps.edit');
+
+    Route::put('/chirps/{chirp}', [ChirpController::class, 'update'])
+        ->name('chirps.update');
 });
 
 require __DIR__.'/auth.php';

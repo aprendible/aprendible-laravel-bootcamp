@@ -39,6 +39,10 @@
                                         {{ $chirp->user->name }}
                                     </span>
                                     <small class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ $chirp->created_at->format('j M Y, g:i a') }}</small>
+                                    @unless($chirp->created_at->eq($chirp->updated_at))
+                                        <small class="text-sm text-gray-600 dark:text-gray-400"> &middot; {{ __('edited') }}</small>
+                                    @endunless
+
                                 </div>
                             </div>
                             <p class="mt-4 text-lg text-gray-900 dark:text-gray-100">{{ $chirp->message }}</p>
