@@ -44,7 +44,7 @@ class ChirpPolicy
      */
     public function delete(User $user, Chirp $chirp): bool
     {
-        //
+        return $user->is($chirp->user);
     }
 
     /**
